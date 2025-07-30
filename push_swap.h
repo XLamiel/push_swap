@@ -6,7 +6,7 @@
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 17:50:01 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/07/28 19:48:05 by xlamiel-         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:17:54 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ typedef struct Data
 // Estructura per el node de la llista
 typedef struct Node
 {
-	Data		*data;	// Punter a les dades
+	t_Data		*data;	// Punter a les dades
 	struct Node	*prev;	// Punter al node anterior
 	struct Node	*next;	// Punter al node siguent
 }	t_Node;
 
-// Estructura per la llista de doble enllac,
-typedef struct DoublyLinkedList
+// Informacio per la llista de doble enllac,
+typedef struct List
 {
 	t_Node	*head;		// Punter al primer node
 	t_Node	*tail;		// Punter al ultim node
@@ -50,14 +50,14 @@ typedef struct DoublyLinkedList
  * @param cost_B Cost B
  * @return Punter a la nova estructura Data creada
  */
-t_Data	*create_data(int data, int position_order, int cost_A, int cost_B);
+t_Data	*create_data(int data, int position_order, int cost_a, int cost_b);
 
 /**
  * Crea un nou node amb les dades proporcionats
  * @param data Punter a l'estructura Data
  * @return Punter al nou node creat
  */
-t_Node	*create_node(Data *data);
+t_Node	*create_node(t_Data *data);
 
 /**
  * Inicializa una nueva lista doblemente enlazada
@@ -71,14 +71,14 @@ t_List	*create_list(void);
  * @param list Llista on s'afegira el node
  * @param node Node per afegir
  */
-void	add_first(t_DoublyLinkedList *list, t_Node *node);
+void	add_first(t_List *list, t_Node *node);
 
 /**
  * Afegeix un node al final de la llista
  * @param list Llista on s'afegira el node
  * @param node Node per afegir
  */
-void	add_last(t_DoublyLinkedList *list, t_Node *node);
+void	add_last(t_List *list, t_Node *node);
 
 /**
  * Elimina un node de la llista, alliberant la memoria
@@ -86,6 +86,6 @@ void	add_last(t_DoublyLinkedList *list, t_Node *node);
  * @param list Llista on s'eliminara el node
  * @param node Node per eliminar
  */
-void	delete_node(t_DoublyLinkedList *list, t_Node *node);
+void	delete_node(t_List *list, t_Node *node);
 
 #endif
