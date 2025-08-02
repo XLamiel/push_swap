@@ -6,7 +6,7 @@
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 17:44:30 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/07/30 17:13:47 by xlamiel-         ###   ########.fr       */
+/*   Updated: 2025/08/02 02:21:20 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ void	free_list(t_List *list)
 	free(list);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
+	if (argc != 2)
+		return (0);
+	
 	// Crear la lista
 	t_List	*list = create_list();
 	if (list == NULL)
