@@ -6,20 +6,31 @@
 #    By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/01 22:51:59 by xlamiel-          #+#    #+#              #
-#    Updated: 2025/08/01 23:29:42 by xlamiel-         ###   ########.fr        #
+#    Updated: 2025/08/03 18:05:08 by xlamiel-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ###############################################################################
+# 🪄▶️ Command line
+###############################################################################
+#
+# gcc ./src/push_swap.c ./src/push_swap_data.c ./src/push_swap_list.c \
+#	-I./include \
+#	-I/home/xlamiel-/gitroot/libft/include \
+#	-L/home/xlamiel-/gitroot/libft \
+#	-lft \
+#	-oexec_push_swap
+#
+###############################################################################
 # 📦 Project Configuration
 ###############################################################################
 
-NAME		:= main_exec
+NAME		:= exec_push_swap
 SRC_DIR		:= src
 OBJ_DIR		:= obj
 DEP_DIR		:= dep
 INCLUDE_DIR	:= include
-LIBFT_DIR	:= ../libft
+LIBFT_DIR	:= /home/xlamiel-/gitroot/libft
 LIBFT		:= $(LIBFT_DIR)/libft.a
 
 ###############################################################################
@@ -53,8 +64,9 @@ RESET		:= \033[0m
 ###############################################################################
 
 SRC			:= \
-	$(SRC_DIR)/main.c \
-	$(SRC_DIR)/utils.c
+	$(SRC_DIR)/push_swap.c \
+	$(SRC_DIR)/push_swap_data.c \
+	$(SRC_DIR)/push_swap_list.c
 
 OBJ			:= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 DEPS		:= $(patsubst $(SRC_DIR)/%.c,$(DEP_DIR)/%.d,$(SRC))

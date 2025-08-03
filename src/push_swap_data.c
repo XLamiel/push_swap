@@ -6,11 +6,11 @@
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:57:30 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/07/30 17:19:03 by xlamiel-         ###   ########.fr       */
+/*   Updated: 2025/08/03 18:34:21 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 t_Data	*create_data(int data, int position_order, int cost_a, int cost_b)
 {

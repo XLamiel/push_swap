@@ -6,11 +6,11 @@
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:55:13 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/07/30 16:59:20 by xlamiel-         ###   ########.fr       */
+/*   Updated: 2025/08/03 18:11:42 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 t_Node	*create_node(t_Data *data)
 {
