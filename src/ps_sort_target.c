@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_sort_target.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/09 15:10:52 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/09/09 15:15:14 by xlamiel-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Caso 1: encontrar posición del mínimo en la lista
+// Case 1: find min possition into the lista
 int	find_min_pos(t_stack *a, int min_val)
 {
 	t_node	*current;
@@ -19,7 +30,7 @@ int	find_min_pos(t_stack *a, int min_val)
 	return (0);
 }
 
-// Caso 2: encontrar la posición entre dos valores consecutivos
+// Case 2: find the possition between two consecutive values
 int	find_insert_pos(t_stack *a, int val)
 {
 	t_node	*current;
@@ -37,7 +48,7 @@ int	find_insert_pos(t_stack *a, int val)
 	return (0);
 }
 
-// Función principal que delega en los casos anteriores
+// Pral. function that delegate in case1 and case2
 int	get_a_target_pos(t_stack *a, int val)
 {
 	int	min_val;
