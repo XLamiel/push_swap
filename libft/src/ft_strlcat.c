@@ -1,46 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:16:32 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:16:47 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/23 23:16:27 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/27 17:52:02 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-void	init_stack(t_stack *s)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	s->top = NULL;
-	s->size = 0;
-}
+	size_t	len_dst;
+	size_t	len_src;
+	size_t	i;
 
-void	load_stack(t_stack *a, int argc, char **argv)
-{
-	int		i;
-	t_satoi	result;
-
-	i = argc - 1;
-	while (i >= 1)
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	if (size <= len_dst)
+		return (size + len_src);
+	i = 0;
+	while ((len_dst + i) < (size - 1) && src[i] != '\0')
 	{
-		result = ft_satoi(argv[i]);
-		if (result.error != 0)
-		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		push(a, result.value);
-		i--;
+		dst[len_dst + i] = src[i];
+		i++;
 	}
-}
-
-void	free_stack(t_stack *s)
-{
-	int	val;
-
-	while (s->top)
-		pop(s, &val);
+	dst[len_dst + i] = '\0';
+	return (len_dst + len_src);
 }

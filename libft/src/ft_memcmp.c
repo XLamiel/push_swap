@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:16:32 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:16:47 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/20 19:49:47 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/27 17:45:14 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-void	init_stack(t_stack *s)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	s->top = NULL;
-	s->size = 0;
-}
+	const unsigned char	*uc_s1 = (const unsigned char *)s1;
+	const unsigned char	*uc_s2 = (const unsigned char *)s2;
 
-void	load_stack(t_stack *a, int argc, char **argv)
-{
-	int		i;
-	t_satoi	result;
-
-	i = argc - 1;
-	while (i >= 1)
+	while (n--)
 	{
-		result = ft_satoi(argv[i]);
-		if (result.error != 0)
-		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		push(a, result.value);
-		i--;
+		if (*uc_s1 != *uc_s2)
+			return (*uc_s1 - *uc_s2);
+		uc_s1++;
+		uc_s2++;
 	}
-}
-
-void	free_stack(t_stack *s)
-{
-	int	val;
-
-	while (s->top)
-		pop(s, &val);
+	return (0);
 }

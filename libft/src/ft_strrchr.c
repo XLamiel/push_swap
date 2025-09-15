@@ -1,46 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:16:32 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:16:47 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/16 21:19:14 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/16 22:00:47 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-void	init_stack(t_stack *s)
+/* while (*s != '\0') */
+/* while (*s) */
+
+char	*ft_strrchr(const char *s, int c)
 {
-	s->top = NULL;
-	s->size = 0;
-}
+	char	*last_prt;
 
-void	load_stack(t_stack *a, int argc, char **argv)
-{
-	int		i;
-	t_satoi	result;
-
-	i = argc - 1;
-	while (i >= 1)
+	last_prt = NULL;
+	while (*s)
 	{
-		result = ft_satoi(argv[i]);
-		if (result.error != 0)
-		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		push(a, result.value);
-		i--;
+		if (*s == (char)c)
+			last_prt = (char *)s;
+		s++;
 	}
-}
-
-void	free_stack(t_stack *s)
-{
-	int	val;
-
-	while (s->top)
-		pop(s, &val);
+	if ((char)c == '\0')
+		last_prt = (char *)s;
+	return (last_prt);
 }

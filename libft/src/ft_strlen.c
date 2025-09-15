@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:17:27 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:17:34 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/16 12:06:34 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/27 17:10:04 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-/*
-	Debug mode:
-	Insert in 31 line:
-		//	print_stacks(&a, &b);
-*/
-
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	t_stack	a;
-	t_stack	b;
+	size_t	i;
 
-	if (argc < 2)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	init_stack(&a);
-	init_stack(&b);
-	load_stack(&a, argc, argv);
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	rotate_min_top(&a);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

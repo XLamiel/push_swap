@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:17:27 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:17:34 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/09/10 18:51:57 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/09/10 21:53:15 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-/*
-	Debug mode:
-	Insert in 31 line:
-		//	print_stacks(&a, &b);
-*/
-
-int	main(int argc, char **argv)
+int	ft_isspace(char c)
 {
-	t_stack	a;
-	t_stack	b;
-
-	if (argc < 2)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	init_stack(&a);
-	init_stack(&b);
-	load_stack(&a, argc, argv);
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	rotate_min_top(&a);
-	free_stack(&a);
-	free_stack(&b);
+	if (c == ' ')
+		return (c == ' ');
+	if (c == '\t')
+		return (c == '\t');
+	if (c == '\n')
+		return (c == '\n');
+	if (c == '\v')
+		return (c == '\v');
+	if (c == '\f')
+		return (c == '\f');
+	if (c == '\r')
+		return (c == '\r');
 	return (0);
 }

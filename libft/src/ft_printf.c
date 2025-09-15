@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:16:32 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:16:47 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/07/17 20:16:48 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/07/17 20:41:51 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-void	init_stack(t_stack *s)
+int	ft_printf(const char *format, ...)
 {
-	s->top = NULL;
-	s->size = 0;
-}
+	va_list	args;
+	int		len;
+	int		tmp;
 
-void	load_stack(t_stack *a, int argc, char **argv)
-{
-	int		i;
-	t_satoi	result;
-
-	i = argc - 1;
-	while (i >= 1)
+	va_start(args, format);
+	len = 0;
+	while (*format)
 	{
-		result = ft_satoi(argv[i]);
-		if (result.error != 0)
+		if (*format == '%')
 		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
+			tmp = ft_handle_format(&format, args);
+			if (tmp == -1)
+				return (-1);
+			len += tmp;
 		}
-		push(a, result.value);
-		i--;
+		else
+		{
+			if (write(1, format++, 1) == -1)
+				return (-1);
+			len++;
+		}
 	}
-}
-
-void	free_stack(t_stack *s)
-{
-	int	val;
-
-	while (s->top)
-		pop(s, &val);
+	va_end(args);
+	return (len);
 }

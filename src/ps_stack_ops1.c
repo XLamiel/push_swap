@@ -18,7 +18,10 @@ t_node	*new_node(int value)
 
 	node = malloc(sizeof(t_node));
 	if (!node)
+	{
+		ft_printf("Error\n");
 		return (NULL);
+	}
 	node->value = value;
 	node->next = NULL;
 	return (node);

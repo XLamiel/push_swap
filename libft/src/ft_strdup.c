@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:16:32 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:16:47 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/27 20:39:02 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/27 20:59:55 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
+#include <stdlib.h>  // Asegúrate de incluir malloc
 
-void	init_stack(t_stack *s)
+char	*ft_strdup(const char *s)
 {
-	s->top = NULL;
-	s->size = 0;
-}
+	char	*new_str;
+	size_t	length;
+	size_t	i;
 
-void	load_stack(t_stack *a, int argc, char **argv)
-{
-	int		i;
-	t_satoi	result;
-
-	i = argc - 1;
-	while (i >= 1)
+	length = ft_strlen(s);
+	new_str = (char *)malloc(sizeof(char) * (length + 1));
+	if (new_str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < length)
 	{
-		result = ft_satoi(argv[i]);
-		if (result.error != 0)
-		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		push(a, result.value);
-		i--;
+		new_str[i] = s[i];
+		i++;
 	}
-}
-
-void	free_stack(t_stack *s)
-{
-	int	val;
-
-	while (s->top)
-		pop(s, &val);
+	new_str[length] = '\0';
+	return (new_str);
 }

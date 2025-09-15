@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:17:27 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:17:34 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/16 19:06:58 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/16 19:11:15 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-/*
-	Debug mode:
-	Insert in 31 line:
-		//	print_stacks(&a, &b);
-*/
-
-int	main(int argc, char **argv)
+int	ft_toupper(int c)
 {
-	t_stack	a;
-	t_stack	b;
-
-	if (argc < 2)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	init_stack(&a);
-	init_stack(&b);
-	load_stack(&a, argc, argv);
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	rotate_min_top(&a);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	if ((c >= 'a') && (c <= 'z'))
+		return (c - 32);
+	return (c);
 }

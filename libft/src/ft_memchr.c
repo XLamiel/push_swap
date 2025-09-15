@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:16:32 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:16:47 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/20 17:37:34 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/20 17:52:27 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-void	init_stack(t_stack *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	s->top = NULL;
-	s->size = 0;
-}
+	const unsigned char	*uc_ptr;
 
-void	load_stack(t_stack *a, int argc, char **argv)
-{
-	int		i;
-	t_satoi	result;
-
-	i = argc - 1;
-	while (i >= 1)
+	uc_ptr = (const unsigned char *)s;
+	while (n > 0)
 	{
-		result = ft_satoi(argv[i]);
-		if (result.error != 0)
-		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		push(a, result.value);
-		i--;
+		if (*uc_ptr == (unsigned char)c)
+			return ((void *)uc_ptr);
+		uc_ptr++;
+		n--;
 	}
-}
-
-void	free_stack(t_stack *s)
-{
-	int	val;
-
-	while (s->top)
-		pop(s, &val);
+	return (NULL);
 }

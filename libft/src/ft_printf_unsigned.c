@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_handle_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:17:27 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:17:34 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/07/17 20:14:48 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/07/17 21:36:54 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-/*
-	Debug mode:
-	Insert in 31 line:
-		//	print_stacks(&a, &b);
-*/
-
-int	main(int argc, char **argv)
+int	ft_handle_unsigned(va_list args, int base, int uppercase)
 {
-	t_stack	a;
-	t_stack	b;
+	unsigned int	num;
+	char			*str;
+	int				len;
 
-	if (argc < 2)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	init_stack(&a);
-	init_stack(&b);
-	load_stack(&a, argc, argv);
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	rotate_min_top(&a);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	num = va_arg(args, unsigned int);
+	str = ft_itoa_base(num, base, uppercase);
+	if (!str)
+		return (-1);
+	len = write(1, str, ft_strlen(str));
+	free(str);
+	return (len);
 }

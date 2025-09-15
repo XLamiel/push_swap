@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xlamiel- <xlamiel-@student.42barcelona.com>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 15:17:27 by xlamiel-          #+#    #+#             */
-/*   Updated: 2025/09/09 15:17:34 by xlamiel-         ###   ########.fr       */
+/*   Created: 2025/05/20 18:07:29 by xlamiel-          #+#    #+#             */
+/*   Updated: 2025/05/27 17:44:12 by xlamiel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/libft.h"
 
-/*
-	Debug mode:
-	Insert in 31 line:
-		//	print_stacks(&a, &b);
-*/
-
-int	main(int argc, char **argv)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_stack	a;
-	t_stack	b;
+	unsigned char	*uc_dest;
+	unsigned char	*uc_src;
 
-	if (argc < 2)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	init_stack(&a);
-	init_stack(&b);
-	load_stack(&a, argc, argv);
-	if (!is_sorted(&a))
-		sort_stack(&a, &b);
-	rotate_min_top(&a);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	if (!dest && !src)
+		return (dest);
+	uc_dest = (unsigned char *)dest;
+	uc_src = (unsigned char *)src;
+	while (n--)
+		*uc_dest++ = *uc_src++;
+	return (dest);
 }
